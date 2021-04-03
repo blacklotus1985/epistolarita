@@ -1,0 +1,391 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_head %}
+<link href="http://www.jqueryscript.net/demo/jQuery-Plugin-For-Multi-Select-List-with-Checkboxes-MultiSelect/jquery.multiselect.css"
+      rel="stylesheet" type="text/css" xmlns="http://www.w3.org/1999/html">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://www.jqueryscript.net/demo/jQuery-Plugin-For-Multi-Select-List-with-Checkboxes-MultiSelect/jquery.multiselect.js"></script>
+<style>
+.vl {
+  border-left: 6px solid black;
+  height: 1500px;
+}
+
+</style>
+  {% endblock %}
+{% block content %}
+
+<div class="container" align="center" >
+    <h3><strong>Search Database</strong></h3>
+</div>
+<form method="POST" action="{% url 'search' %}"> {% csrf_token %}
+   <div class="row">
+       <div class="col-1"></div>
+       <div class="col-5">
+           <h4 align="center"><strong>Search Letter</strong></h4>
+           <hr color="black">
+           <strong>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;mittente </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="mittente" multiple>
+                       {% for item in mittente_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+                <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;destinatario </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="destinatario" multiple>
+                       {% for item in destinatario_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;luogo_di_spedizione </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="luogo_di_spedizione" multiple>
+                       {% for item in luogo_di_spedizione_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+           <label class="col-sm-4 col-form-label">data_di_spedizione </label>&nbsp;
+           From &nbsp;&nbsp;<input name="fromdate" class="col-sm-3 col-form" type="date">
+               &nbsp;&nbsp;To&nbsp;&nbsp;<input name="todate" class="col-sm-3 col-form" type="date">
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;luogo_di_conservazione </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="luogo_di_conservazione" multiple>
+                       {% for item in luogo_di_conservazione_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;fondo </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="fondo" multiple>
+                       {% for item in fondo_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;numerazione </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="numerazione" multiple>
+                       {% for item in numerazione_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;numero_prima_carta </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="numero_prima_carta" multiple>
+                       {% for item in numero_prima_carta_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;numero_totale_facciate </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="numero_totale_facciate" multiple>
+                       {% for item in numero_totale_facciate_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+              <br>
+
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;tipologia_lettera </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="tipologia_lettera" multiple>
+                       {% for item in tipologia_lettera_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Facciata_prima_carta </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="Facciata_prima_carta" multiple>
+                       {% for item in Facciata_prima_carta_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;presenza_nota_di_ricezione </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="presenza_nota_di_ricezione" multiple>
+                       {% for item in presenza_nota_di_ricezione_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;presenza_indirizzo </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="presenza_indirizzo" multiple>
+                       {% for item in presenza_indirizzo_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;presenza_sigillo </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="presenza_sigillo" multiple>
+                       {% for item in presenza_sigillo_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;presenza_filigrana </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="presenza_filigrana" multiple>
+                       {% for item in presenza_filigrana_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;altezza </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="altezza" multiple>
+                       {% for item in altezza_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;presenza_firma </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="presenza_firma" multiple>
+                       {% for item in presenza_firma_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;larghezza </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="larghezza" multiple>
+                       {% for item in larghezza_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;dimensioni </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="dimensioni" multiple>
+                       {% for item in dimensioni_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;trascrittore </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="trascrittore" multiple>
+                       {% for item in trascrittore_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-3">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;testo </label>
+                   </span>
+                   <span class="col-sm-6">
+                        <textarea rows="4" cols="47" name="testo" ></textarea>
+                   </span>
+               </span>
+                <div class="col" align="center">
+                   <button type="submit" name="submit" value="button1" class="btn btn-primary">Submit</button>
+               </div>
+
+            <h4 align="center"><strong><br>Search Recommender</strong></h4>
+           <hr color="black">
+           <label class="col-sm-4 col-form-label">id_lettera </label>
+           <input name="id_lettera" class="col-sm-7" type="text">
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;similar_ID </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="similar_ID" multiple>
+                       {% for item in similar_ID_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;similarity_value </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="similarity_value" multiple>
+                       {% for item in similarity_value_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+           <div class="col" align="center">
+               <button type="submit" name="submit" value="button2" class="btn btn-primary">Submit</button>
+           </div>
+           <h4 align="center"><br><strong>Search Statistic</strong></h4>
+           <hr color="black">
+           <label class="col-sm-4 col-form-label">id_lettera </label>
+           <input name="id_lettera" class="col-sm-7" type="text">
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;top_words </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="top_words" multiple>
+                       {% for item in top_words_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                       <label class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;n_words </label>
+                   </span>
+                   <span class="col-sm-7">
+                        <select name="n_words" multiple>
+                       {% for item in n_words_list.all %}
+                            <option value="{{item}}">{{item}}</option>
+                       {% endfor %}
+                        </select>
+                   </span>
+               </span>
+           <div class="col" align="center">
+               <button type="submit" name="submit" value="button3"  class="btn btn-primary">Submit</button>
+           </div>
+           </strong>
+       </div>
+       <div class="col-1">
+           <div class="vl"></div>
+       </div>
+       <div class="col-4">
+           <strong>
+        <h4 align="center"><strong>Search Result</strong></h4>
+           <hr color="black">
+           {% for item in records %}
+               <p>id_lettera ----&nbsp;&nbsp;&nbsp;&nbsp; {{ item.id_lettera }}</p>
+               <p>mittente ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.mittente }}</p>
+               <p>destinatario ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.destinatario }}</p>
+               <p>luogo_di_spedizione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.luogo_di_spedizione }}</p>
+               <p>data_di_spedizione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.data_di_spedizione }}</p>
+               <p>luogo_di_conservazione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.luogo_di_conservazione }}</p>
+               <p>fondo ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.fondo }}</p>
+               <p>numerazione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.numerazione }}</p>
+               <p>numero_prima_carta ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.numero_prima_carta }}</p>
+               <p>Facciata_prima_carta ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.Facciata_prima_carta }}</p>
+               <p>numero_totale_facciate ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.numero_totale_facciate }}</p>
+               <p>tipologia_lettera ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.tipologia_lettera }}</p>
+               <p>presenza_nota_di_ricezione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_nota_di_ricezione }}</p>
+               <p>presenza_indirizzo ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_indirizzo }}</p>
+               <p>presenza_filigrana ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_filigrana }}</p>
+               <p>mittente ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_sigillo }}</p>
+               <p>presenza_sigillo ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_firma }}</p>
+               <p>altezza ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.altezza }}</p>
+               <p>larghezza ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.larghezza }}</p>
+               <p>dimensioni ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.dimensioni }}</p>
+               <p>trascrittore ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.trascrittore }}</p>
+               <p>testo ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.testo }}</p>
+               <hr color="black">
+
+           {% endfor %}
+           </strong>
+       </div>
+
+       <div class="col-1"></div>
+   </div>
+</form>
+<div class="row">
+    <div class="col">
+
+    <br><br><br><br>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $('select[multiple]').multiselect({
+  columns : 1,
+  placeholder: 'Select options'
+});
+</script>
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" >
+    <h3><strong>Search Results</strong></h3>
+</div>
+   <div class="row">
+       <div class="col-2"></div>
+       <div class="col-8">
+           <strong>
+           <hr color="black">
+               <p>id_lettera ----&nbsp;&nbsp;&nbsp;&nbsp; {{ item.id_lettera }}</p>
+               <p>mittente ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.mittente }}</p>
+               <p>destinatario ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.destinatario }}</p>
+               <p>luogo_di_spedizione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.luogo_di_spedizione }}</p>
+               <p>data_di_spedizione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.data_di_spedizione }}</p>
+               <p>luogo_di_conservazione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.luogo_di_conservazione }}</p>
+               <p>fondo ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.fondo }}</p>
+               <p>numerazione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.numerazione }}</p>
+               <p>numero_prima_carta ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.numero_prima_carta }}</p>
+               <p>Facciata_prima_carta ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.Facciata_prima_carta }}</p>
+               <p>numero_totale_facciate ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.numero_totale_facciate }}</p>
+               <p>tipologia_lettera ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.tipologia_lettera }}</p>
+               <p>presenza_nota_di_ricezione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_nota_di_ricezione }}</p>
+               <p>presenza_indirizzo ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_indirizzo }}</p>
+               <p>presenza_filigrana ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_filigrana }}</p>
+               <p>mittente ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_sigillo }}</p>
+               <p>presenza_sigillo ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_firma }}</p>
+               <p>altezza ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.altezza }}</p>
+               <p>larghezza ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.larghezza }}</p>
+               <p>dimensioni ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.dimensioni }}</p>
+               <p>trascrittore ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.trascrittore }}</p>
+               <p>testo ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.testo }}</p>
+               <hr color="black">
+
+           </strong>
+   </div>
+   </div>
+
+
+
+{% endblock content %}

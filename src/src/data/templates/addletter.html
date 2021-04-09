@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container" align="center" >
+    <h3><strong>Add Letter</strong></h3>
+</div>
+<form method="POST" action="{% url 'add_letter' %}"> {% csrf_token %}
+   <div class="row">
+       <div class="col-2"></div>
+       <div class="col-8">
+           <strong>
+            <label class="col-sm-4 col-form-label">mittente </label>
+           <input name="mittente" class="col-sm-7" type="text">
+           <label class="col-sm-4 col-form-label">destinatario </label>
+           <input name="destinatario" class="col-sm-7" type="text">
+           <label class="col-sm-4 col-form-label">luogo_di_spedizione </label>
+           <input name="luogo_di_spedizione" class="col-sm-7" type="text">
+               <label class="col-sm-4 col-form-label">data_di_spedizione </label>
+           <input name="data_di_spedizione" class="col-sm-7" type="date">
+               <label class="col-sm-4 col-form-label">luogo_di_conservazione </label>
+           <input name="luogo_di_conservazione" class="col-sm-7" type="text">
+               <label class="col-sm-4 col-form-label">fondo </label>
+           <input name="fondo" class="col-sm-7" type="text">
+               <label class="col-sm-4 col-form-label">numerazione </label>
+                    <select class="col-sm-7" name="numerazione">
+                            <option value="0.0">0.0</option>
+                            <option value="1.0">1.0</option>
+                    </select>
+               <label class="col-sm-4 col-form-label">numero_prima_carta </label>
+           <input name="numero_prima_carta" class="col-sm-7" type="number">
+               <label class="col-sm-4 col-form-label">Facciata_prima_carta </label>
+                    <select class="col-sm-7" name="Facciata_prima_carta">
+                            <option value="r">r</option>
+                            <option value="v">v</option>
+                    </select>
+               <label class="col-sm-4 col-form-label">numero_totale_facciate </label>
+           <input name="numero_totale_facciate" class="col-sm-7" type="number">
+               <label class="col-sm-4 col-form-label">tipologia_lettera </label>
+                    <select class="col-sm-7" name="tipologia_lettera">
+                            <option value="copia">copia</option>
+                            <option value="originale">originale</option>
+                    </select>
+               <label class="col-sm-4 col-form-label">presenza_nota_di_ricezione </label>
+                    <select class="col-sm-7" name="presenza_nota_di_ricezione">
+                            <option value="0.0">0.0</option>
+                            <option value="1.0">1.0</option>
+                    </select>
+               <label class="col-sm-4 col-form-label">presenza_indirizzo </label>
+                    <select class="col-sm-7" name="presenza_indirizzo">
+                            <option value="0.0">0.0</option>
+                            <option value="1.0">1.0</option>
+                    </select>
+               <label class="col-sm-4 col-form-label">presenza_filigrana </label>
+                    <select class="col-sm-7" name="presenza_filigrana">
+                            <option value="0.0">0.0</option>
+                            <option value="1.0">1.0</option>
+                    </select>
+               <label class="col-sm-4 col-form-label">presenza_sigillo </label>
+                    <select class="col-sm-7" name="presenza_sigillo">
+                            <option value="0.0">0.0</option>
+                            <option value="1.0">1.0</option>
+                    </select>
+               <label class="col-sm-4 col-form-label">presenza_firma </label>
+                    <select class="col-sm-7" name="presenza_firma">
+                            <option value="0.0">0.0</option>
+                            <option value="1.0">1.0</option>
+                    </select>
+               <label class="col-sm-4 col-form-label">altezza </label>
+           <input name="altezza" class="col-sm-7" type="number">
+               <label class="col-sm-4 col-form-label">larghezza </label>
+           <input name="larghezza" class="col-sm-7" type="number">
+               <label class="col-sm-4 col-form-label">dimensioni </label>
+           <input name="dimensioni" class="col-sm-7" type="text">
+               <label class="col-sm-4 col-form-label">trascrittore </label>
+           <input name="trascrittore" class="col-sm-7" type="text">
+               <label class="col-sm-4 col-form-label">testo </label>
+               <textarea rows="4" cols="70" name="testo" ></textarea>
+
+
+            <div class="col" align="center">
+               <button type="submit" name="submit" value="button1" class="btn btn-primary">Submit</button>
+           </div>
+           </strong>
+   </div>
+   </div>
+</form>
+<div class="row">
+    <div class="col">
+
+    <br><br><br><br>
+    </div>
+
+</div>
+
+
+
+{% endblock content %}

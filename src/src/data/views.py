@@ -10,9 +10,9 @@ from django.core.mail import send_mail
 
 from .models import Letter, Recommender, Statistic,TempLetter
 
-path = r'C:\Users\black\OneDrive\Desktop\Alex\valenti\database\epistolarita\src\tables.xlsx'
+
 def Insert_Letter(request):
-    loc = (path)
+    loc = ("G:/Tutorial/tables.xlsx")
 
     wb = xlrd.open_workbook(loc)
     sheet = wb.sheet_by_index(0)
@@ -46,7 +46,7 @@ def Insert_Letter(request):
 
 
 def Insert_Recommender(request):
-    loc = (path)
+    loc = ("G:/Tutorial/tables.xlsx")
 
     wb = xlrd.open_workbook(loc)
     sheet = wb.sheet_by_index(1)
@@ -61,7 +61,7 @@ def Insert_Recommender(request):
 
 
 def Insert_Statistic(request):
-    loc = (path)
+    loc = ("G:/Tutorial/tables.xlsx")
 
     wb = xlrd.open_workbook(loc)
     sheet = wb.sheet_by_index(2)

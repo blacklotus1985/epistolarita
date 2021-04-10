@@ -267,6 +267,18 @@
                         <textarea rows="4" cols="47" name="testo" ></textarea>
                    </span>
                </span>
+               <span class="row">
+                   <span class="col-sm-4">
+                        <label class="col-sm-4 col-form-label">testo filter </label>
+                   </span>
+                   <span class="col-sm-5">
+                    <select class="col-sm-7" name="testo_filter">
+                            <option value="all">all</option>
+                            <option value="and">and</option>
+                            <option value="or">or</option>
+                    </select>
+                   </span>
+               </span>
                 <div class="col" align="center">
                    <button type="submit" name="submit" value="button1" class="btn btn-primary">Submit</button>
                </div>
@@ -346,29 +358,13 @@
                <p>id_lettera ----&nbsp;&nbsp;&nbsp;&nbsp; {{ item.id_lettera }}</p>
                <p>mittente ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.mittente }}</p>
                <p>destinatario ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.destinatario }}</p>
-               <p>luogo_di_spedizione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.luogo_di_spedizione }}</p>
-               <p>data_di_spedizione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.data_di_spedizione }}</p>
-               <p>luogo_di_conservazione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.luogo_di_conservazione }}</p>
-               <p>fondo ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.fondo }}</p>
-               <p>numerazione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.numerazione }}</p>
-               <p>numero_prima_carta ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.numero_prima_carta }}</p>
-               <p>Facciata_prima_carta ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.Facciata_prima_carta }}</p>
-               <p>numero_totale_facciate ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.numero_totale_facciate }}</p>
-               <p>tipologia_lettera ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.tipologia_lettera }}</p>
-               <p>presenza_nota_di_ricezione ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_nota_di_ricezione }}</p>
-               <p>presenza_indirizzo ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_indirizzo }}</p>
-               <p>presenza_filigrana ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_filigrana }}</p>
-               <p>mittente ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_sigillo }}</p>
-               <p>presenza_sigillo ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.presenza_firma }}</p>
-               <p>altezza ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.altezza }}</p>
-               <p>larghezza ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.larghezza }}</p>
-               <p>dimensioni ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.dimensioni }}</p>
-               <p>trascrittore ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.trascrittore }}</p>
-               <p>testo ----&nbsp;&nbsp;&nbsp;&nbsp;{{ item.testo }}</p>
-               <hr color="black">
 
+
+                <a class="btn btn-success" href="/details/{{ item.id_lettera }}">More Info</a>
+               <hr color="black">
            {% endfor %}
            </strong>
+
        </div>
 
        <div class="col-1"></div>

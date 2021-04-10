@@ -17,7 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,include
-from home.views import index,search,upload
+from home.views import index,search,upload,details
 from data.views import Insert_Letter,Insert_Recommender,Insert_Statistic,AddLetter
 
 urlpatterns = [
@@ -30,6 +30,7 @@ urlpatterns = [
     path('recommender/', Insert_Recommender,name='insert_recommender'),
     path('statistic/', Insert_Statistic,name='insert_statistic'),
     path('accounts/', include('allauth.urls')),
+    path('details/<id>', details, name='details'),
 ]
 
 # if settings.DEBUG:

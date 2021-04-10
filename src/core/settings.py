@@ -10,13 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'alexander.zeisberg85@gmail.com'
 EMAIL_HOST_USER =  'alexander.zeisberg85@gmail.com'
-EMAIL_HOST_PASSWORD  = 'rgomzkhgleyqejpa'
+EMAIL_HOST_PASSWORD  = 'vwwapasscqleeprd'
 DEFAULT_FROM_EMAIL = 'Notification <alexander.zeisberg85@gmail.com>'
 EMAIL_PORT = 587
 import os
-import psycopg2
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -91,15 +91,10 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    # changed 'default' to 'old'
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'letters_db_new',
-        'USER': 'postgres',
-        'PASSWORD': '62662',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 

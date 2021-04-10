@@ -1,6 +1,8 @@
 from data.models import Letter
 from django.shortcuts import render
-
+import operator
+from django.db.models import Q
+from functools import reduce
 
 # Create your views here.
 
@@ -82,6 +84,8 @@ def search(request):
         larghezza_list = data.getlist('larghezza')
         fromdate = data.get('fromdate')
         todate = data.get('todate')
+        testo = data.get('testo')
+        flag = data.get('testo_filter')
 
         records = Letter.objects.all()
         if fromdate and todate:
@@ -122,7 +126,19 @@ def search(request):
             records = records.filter(trascrittore__in=trascrittore_list)
         if len(larghezza_list) != 0:
             records = records.filter(larghezza__in=larghezza_list)
+        if testo:
+            if flag=='all':
+                records = records.filter(testo__icontains=testo)
+            elif flag == 'and':
+                words = testo.split(" ")
+                print(words)
+                records = records.filter(reduce(operator.and_, (Q(testo__icontains=x) for x in words)))
+            else:
+                words = testo.split(" ")
+                print(words)
+                records = records.filter(reduce(operator.or_, (Q(testo__icontains=x) for x in words)))
 
+        print(len(records))
         context.update({'records': records})
         return render(request, 'search.html', context)
     if request.POST.get('submit') == "button2":
@@ -131,3 +147,9 @@ def search(request):
         return render(request, 'home.html')
 
     return render(request, 'search.html', context)
+
+def details(request,id):
+
+    item = Letter.objects.filter(id_lettera=id).first()
+
+    return render(request,'details.html',{'item':item})

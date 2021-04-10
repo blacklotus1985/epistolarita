@@ -112,8 +112,12 @@ class TempLetter(models.Model):
                     testo=self.testo,
                 )
             else:
+                id_lettera = str(self.luogo_di_spedizione) + "_" + str(self.fondo) + "_"
+                cnt = Letter.objects.filter(id_lettera__icontains=id_lettera).count()
+                id_lettera += str(cnt + 1)
+                self.id_lettera = id_lettera
                 object = Letter.objects.create(
-                    id_lettera=self.id_lettera,
+                    id_lettera= id_lettera,
                     mittente=self.mittente,
                     destinatario=self.destinatario,
                     luogo_di_spedizione=self.luogo_di_spedizione,
